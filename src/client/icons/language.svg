@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes globe-spin{to{transform:rotate(360deg)}}
+.gs{animation:globe-spin 1s linear infinite;transform-origin:12px 12px}
+</style>
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+<ellipse class="gs" cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.4"/>
+<line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.4"/>
+<line x1="4.5" y1="7.5" x2="19.5" y2="7.5" stroke="currentColor" stroke-width="1" opacity=".5"/>
+<line x1="4.5" y1="16.5" x2="19.5" y2="16.5" stroke="currentColor" stroke-width="1" opacity=".5"/>
+</svg>

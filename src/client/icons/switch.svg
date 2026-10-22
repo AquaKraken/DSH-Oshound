@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes sw-track{0%,12%{opacity:0}45%,70%{opacity:.22}100%{opacity:0}}
+@keyframes sw-knob{0%,12%{transform:translateX(0)}45%,70%{transform:translateX(10px)}100%{transform:translateX(0)}}
+.swt{fill:currentColor;opacity:0;animation:sw-track 2.4s ease-in-out infinite}
+.swk{animation:sw-knob 2.4s cubic-bezier(.4,0,.2,1) infinite}
+</style>
+<rect x="1.5" y="6" width="21" height="12" rx="6" stroke="currentColor" stroke-width="1.7"/>
+<rect class="swt" x="1.5" y="6" width="21" height="12" rx="6"/>
+<circle class="swk" cx="7.5" cy="12" r="3.6" fill="currentColor"/>
+</svg>

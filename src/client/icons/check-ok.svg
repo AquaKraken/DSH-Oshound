@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes tick-draw{0%{stroke-dashoffset:28}100%{stroke-dashoffset:0}}
+.tk{stroke-dasharray:28;animation:tick-draw .35s ease-out forwards}
+</style>
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" opacity=".3"/>
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+<polyline class="tk" points="7,12 10.5,15.5 17,8" stroke="currentColor" stroke-width="2.2"/>
+</svg>

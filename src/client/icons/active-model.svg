@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes target-ring{0%{r:7;opacity:.6}100%{r:13;opacity:0}}
+.tr{animation:target-ring .9s ease-out infinite}
+</style>
+<circle class="tr" cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1" opacity="0"/>
+<circle cx="12" cy="12" r="7" fill="currentColor" opacity=".18"/>
+<circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8"/>
+<circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+<line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.6"/>
+<line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.6"/>
+<line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.6"/>
+<line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.6"/>
+</svg>

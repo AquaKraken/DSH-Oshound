@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes prev-ring{0%{r:9;opacity:.4}100%{r:13;opacity:0}}
+.pvr{animation:prev-ring .7s ease-out infinite}
+</style>
+<circle class="pvr" cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width=".8" opacity="0"/>
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="10,8 10,16 17,12" fill="currentColor"/>
+</svg>

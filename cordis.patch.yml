@@ -1,0 +1,8 @@
+# dsh-osound bundle patch: inserts the plugin row into the web profile roster.
+# The node half (exports ".") runs in the host process (settings scope,
+# /dsh-osound/api webServer routes, Whisper/Piper child processes); the
+# `dsh.client` declaration in package.json makes the browser half
+# (exports "./client") load in the web GUI and register the 🎤/🔊 slots.
+- insert:
+    - id: dsh-osound
+      name: 'dsh-osound'

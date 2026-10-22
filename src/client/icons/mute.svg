@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes slash-draw{0%{stroke-dashoffset:30}100%{stroke-dashoffset:0}}
+@keyframes waves-fade{0%{opacity:1;transform:translateX(0)}100%{opacity:.18;transform:translateX(3px)}}
+.msl{stroke-dasharray:30;stroke-dashoffset:0;animation:slash-draw .35s ease-out forwards}
+.mwv{opacity:.18;animation:waves-fade .35s ease-out forwards}
+</style>
+<polygon points="3,8 3,16 7,16 13,20 13,4 7,8" stroke="currentColor" stroke-width="1.7" fill="currentColor" fill-opacity=".12"/>
+<g class="mwv">
+  <path d="M16 9a5 5 0 0 1 0 6"    stroke="currentColor" stroke-width="1.6"/>
+  <path d="M19 6.5a9 9 0 0 1 0 11" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+</g>
+<line class="msl" x1="2" y1="22" x2="22" y2="2" stroke="currentColor" stroke-width="2.2"/>
+</svg>

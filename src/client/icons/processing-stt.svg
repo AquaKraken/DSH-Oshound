@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes arc-cw{to{stroke-dashoffset:-75}}
+@keyframes spin-bg{to{transform:rotate(360deg)}}
+.arc{animation:arc-cw .8s linear infinite}
+.sbg{animation:spin-bg 1.2s linear infinite;transform-origin:12px 12px}
+</style>
+<circle class="sbg" cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="12 55" opacity=".25"/>
+<circle class="arc" cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="28 47" stroke-linecap="round"/>
+</svg>

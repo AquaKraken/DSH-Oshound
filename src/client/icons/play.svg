@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes play-ring{0%{r:8;opacity:.5}100%{r:13;opacity:0}}
+.pr{animation:play-ring .8s ease-out infinite}
+</style>
+<circle class="pr" cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width=".8" opacity="0"/>
+<polygon points="8,5 8,19 20,12" fill="currentColor"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes chev-bounce-u{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.cbu{animation:chev-bounce-u .5s ease-in-out infinite;transform-origin:12px 11px}
+</style>
+<polyline class="cbu" points="4,15 12,7 20,15" stroke="currentColor" stroke-width="2.2"/>
+</svg>

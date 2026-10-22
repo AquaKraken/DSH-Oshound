@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes funnel-shake{0%,100%{transform:rotate(0)}20%{transform:rotate(-9deg)}60%{transform:rotate(9deg)}80%{transform:rotate(-4deg)}}
+.fsh{animation:funnel-shake .45s ease-in-out;transform-origin:12px 11px}
+</style>
+<g class="fsh">
+  <path d="M3 4h18l-7 9v7l-4-2V13Z" stroke="currentColor" stroke-width="1.7" fill="currentColor" fill-opacity=".1"/>
+  <line x1="5.5" y1="8"  x2="18.5" y2="8"  stroke="currentColor" stroke-width="1.1" opacity=".5"/>
+  <line x1="8"   y1="11" x2="16"   y2="11" stroke="currentColor" stroke-width="1.1" opacity=".3"/>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes eq-a{0%,100%{transform:scaleY(.2)}50%{transform:scaleY(1)}}
+.e1{animation:eq-a .6s .00s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.e2{animation:eq-a .6s .12s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.e3{animation:eq-a .6s .24s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.e4{animation:eq-a .6s .36s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+</style>
+<rect class="e1" x="1"  y="2" width="5" rx="2.5" height="20" fill="currentColor"/>
+<rect class="e2" x="7"  y="2" width="5" rx="2.5" height="20" fill="currentColor"/>
+<rect class="e3" x="13" y="2" width="5" rx="2.5" height="20" fill="currentColor"/>
+<rect class="e4" x="19" y="2" width="5" rx="2.5" height="20" fill="currentColor"/>
+</svg>

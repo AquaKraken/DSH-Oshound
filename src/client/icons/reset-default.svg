@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes reset-ccw{to{transform:rotate(-360deg)}}
+.rc{animation:reset-ccw .65s ease-in-out;transform-origin:12px 12px}
+</style>
+<g class="rc">
+<path d="M12 6 A6 6 0 1 1 6 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+<polygon points="12,3 9,7 15,7" fill="currentColor"/>
+<circle cx="12" cy="12" r="1.8" fill="currentColor"/>
+</g>
+</svg>

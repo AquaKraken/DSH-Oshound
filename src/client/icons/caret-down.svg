@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes chev-bounce-d{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+.cbd{animation:chev-bounce-d .5s ease-in-out infinite;transform-origin:12px 13px}
+</style>
+<polyline class="cbd" points="4,9 12,17 20,9" stroke="currentColor" stroke-width="2.2"/>
+</svg>

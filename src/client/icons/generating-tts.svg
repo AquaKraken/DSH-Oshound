@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes wv{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.w1{animation:wv .7s .00s ease-in-out infinite;transform-origin:3px 12px}
+.w2{animation:wv .7s .10s ease-in-out infinite;transform-origin:7px 12px}
+.w3{animation:wv .7s .20s ease-in-out infinite;transform-origin:11px 12px}
+.w4{animation:wv .7s .30s ease-in-out infinite;transform-origin:15px 12px}
+.w5{animation:wv .7s .40s ease-in-out infinite;transform-origin:19px 12px}
+.w6{animation:wv .7s .50s ease-in-out infinite;transform-origin:23px 12px}
+</style>
+<rect class="w1" x="1"  y="6" width="4" rx="2" height="12" fill="currentColor"/>
+<rect class="w2" x="6"  y="6" width="4" rx="2" height="12" fill="currentColor"/>
+<rect class="w3" x="11" y="6" width="4" rx="2" height="12" fill="currentColor"/>
+<rect class="w4" x="16" y="6" width="4" rx="2" height="12" fill="currentColor"/>
+<rect class="w5" x="21" y="6" width="4" rx="2" height="12" fill="currentColor" style="display:none"/>
+<rect class="w5" x="20" y="6" width="4" rx="2" height="12" fill="currentColor"/>
+</svg>

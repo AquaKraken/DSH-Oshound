@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes sq-breath{0%,100%{transform:scale(1)}50%{transform:scale(.82)}}
+.sq{animation:sq-breath .6s ease-in-out infinite;transform-origin:12px 12px}
+</style>
+<rect class="sq" x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/>
+</svg>

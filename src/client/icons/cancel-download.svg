@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes cx-flip{0%{transform:rotate(0)}100%{transform:rotate(180deg)}}
+.cxf{animation:cx-flip .4s ease-out forwards;transform-origin:12px 12px}
+</style>
+<g class="cxf">
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+<line x1="8" y1="8" x2="16" y2="16" stroke="currentColor" stroke-width="2.2"/>
+<line x1="16" y1="8" x2="8" y2="16" stroke="currentColor" stroke-width="2.2"/>
+</g>
+</svg>

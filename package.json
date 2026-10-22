@@ -1,0 +1,123 @@
+{
+  "name": "dsh-osound",
+  "version": "0.5.1",
+  "description": "O-Sound — a Windows-only, fully local voice interface (🎤 Whisper STT + 🔊 Piper TTS) for DeepSeek Harness. Resolved against the live DSH plugin API (settings + webServer host, React client bundle).",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "scripts",
+    "tests",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:client": "node scripts/build-icons.mjs && node scripts/build-client.mjs",
+    "package": "npm pack",
+    "build:icons": "node scripts/build-icons.mjs",
+    "prepublishOnly": "npm run build:client && npm test"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "voice",
+    "whisper",
+    "piper",
+    "stt",
+    "tts"
+  ],
+  "dependencies": {
+    "schemastery": "^3.18.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "vitest": "^2.1.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-settings": "*",
+    "@deepseek-ai/dsh-host-webserver": "*",
+    "schemastery": "*",
+    "react": "^18.2.0",
+    "@deepseek-ai/dsh-client-ui-conversation": "*",
+    "@deepseek-ai/dsh-client-ui-chat": "*",
+    "@deepseek-ai/dsh-client-ui-settings": "*",
+    "@deepseek-ai/dsh-client-ui-slots": "*",
+    "@deepseek-ai/dsh-cordis-client-runner": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-settings": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-host-webserver": {
+      "optional": true
+    },
+    "schemastery": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-conversation": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-chat": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-settings": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-cordis-client-runner": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-cordis-client-runner"
+      ]
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "author": "AquaKraken",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AquaKraken/dsh-osound.git"
+  },
+  "homepage": "https://github.com/AquaKraken/dsh-osound#readme",
+  "bugs": {
+    "url": "https://github.com/AquaKraken/dsh-osound/issues"
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes dot-snap{0%{r:0;opacity:0}70%{r:5;opacity:1}100%{r:3.5;opacity:1}}
+.ds{animation:dot-snap .3s cubic-bezier(.34,1.56,.64,1) forwards}
+</style>
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+<circle class="ds" cx="12" cy="12" r="3.5" fill="currentColor" opacity="0"/>
+</svg>

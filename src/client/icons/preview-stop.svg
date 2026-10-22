@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes prev-sq{0%,100%{transform:scale(1)}50%{transform:scale(.78)}}
+.pvs{animation:prev-sq .55s ease-in-out infinite;transform-origin:12px 12px}
+</style>
+<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+<rect class="pvs" x="8.5" y="8.5" width="7" height="7" rx="1.5" fill="currentColor"/>
+</svg>

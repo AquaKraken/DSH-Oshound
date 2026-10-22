@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+@keyframes warn-throb{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.wt{animation:warn-throb .55s ease-in-out infinite;transform-origin:12px 12px}
+</style>
+<g class="wt">
+<path d="M12 2 L22 21 H2 Z" fill="currentColor" opacity=".15"/>
+<path d="M12 2 L22 21 H2 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+<rect x="11" y="8" width="2" height="7" rx="1" fill="currentColor"/>
+<circle cx="12" cy="18" r="1.2" fill="currentColor"/>
+</g>
+</svg>

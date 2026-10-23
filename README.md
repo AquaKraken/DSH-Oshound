@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/33861089/README.md)
 # O-Sound 🎤🔊
 
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
@@ -44,19 +45,19 @@ model, and voice downloads touch the network.
 **From npm (recommended):**
 
 ```powershell
-npx @deepseek-ai/dsh plugin --profile web add dsh-osound
+dsh plugin --profile web add dsh-osound
 ```
 
 **From GitHub:**
 
 ```powershell
-npx @deepseek-ai/dsh plugin --profile web add github:AquaKraken/dsh-osound
+dsh plugin --profile web add github:AquaKraken/DSH-Oshound
 ```
 
 **From a local folder:**
 
 ```powershell
-npx @deepseek-ai/dsh plugin --profile web add "C:\path\to\dsh-osound"
+dsh plugin --profile web add "C:\path\to\dsh-osound"
 ```
 
 (Replace `web` with your profile name if different.) Then restart DSH — plugin

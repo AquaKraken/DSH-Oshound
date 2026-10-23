@@ -2,7 +2,7 @@
 # O-Sound 🎤🔊
 
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
-[![npm version](https://img.shields.io/npm/v/dsh-osound.svg)](https://www.npmjs.com/package/dsh-osound)
+[![npm version](https://img.shields.io/npm/v/dsh-osound.svg)](https://www.npmjs.com/package/DSH-Oshound)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A Windows-only, fully local voice interface for **DeepSeek Harness (DSH)**.
@@ -57,7 +57,7 @@ dsh plugin --profile web add github:AquaKraken/DSH-Oshound
 **From a local folder:**
 
 ```powershell
-dsh plugin --profile web add "C:\path\to\dsh-osound"
+dsh plugin --profile web add "C:\path\to\DSH-Oshound"
 ```
 
 (Replace `web` with your profile name if different.) Then restart DSH — plugin

@@ -45,7 +45,7 @@ model, and voice downloads touch the network.
 **From npm (recommended):**
 
 ```powershell
-dsh plugin --profile web add dsh-osound
+dsh plugin --profile web add DSH-Oshound
 ```
 
 **From GitHub:**

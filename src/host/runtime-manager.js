@@ -19,9 +19,12 @@
 //     The zip's whole folder must land in runtime\piper\ : piper.exe plus
 //     espeak-ng.dll, onnxruntime*.dll, piper_phonemize.dll,
 //     libtashkeel_model.ort AND the 360-file espeak-ng-data\ tree.
+//     Note: `piper_windows_amd64.zip` wraps its contents in a top-level
+//     `piper/` directory, so installRuntime() extracts to a staging folder
+//     and promotes single-folder archives into `dir`.
 
 import { spawn } from 'node:child_process';
-import { rm, stat } from 'node:fs/promises';
+import { mkdir, readdir, rename, rm, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { downloadFile, DownloadQueue } from '../models/downloader.js';
 
@@ -136,6 +139,7 @@ export class RuntimeManager {
     if (!release) throw new Error(`Unknown runtime kind: ${kind}`);
     const dir = kind === 'whisper' ? path.dirname(this.paths.whisperExe) : path.dirname(this.paths.piperExe);
     const zipPath = path.join(dir, release.asset);
+    const stagingDir = path.join(dir, '.extracting');
     const queueKey = `runtime:${kind}`;
 
     return this.downloadQueue.enqueue(queueKey, async (signal, reportProgress) => {
@@ -159,8 +163,12 @@ export class RuntimeManager {
         });
 
         try {
-          await this._extract(zipPath, dir, controller.signal);
+          await rm(stagingDir, { recursive: true, force: true }).catch(() => {});
+          await mkdir(stagingDir, { recursive: true });
+          await this._extract(zipPath, stagingDir, controller.signal);
+          await this._promoteExtracted(stagingDir, dir);
         } finally {
+          await rm(stagingDir, { recursive: true, force: true }).catch(() => {});
           await rm(zipPath, { force: true }).catch(() => {});
         }
       } finally {
@@ -168,6 +176,28 @@ export class RuntimeManager {
         this.activeDownloads.delete(kind);
       }
     });
+  }
+
+  /**
+   * Moves extracted runtime files from `stagingDir` into `destDir`, flattening
+   * a single top-level wrapper directory (e.g. `piper/` inside `piper_windows_amd64.zip`).
+   * @param {string} stagingDir
+   * @param {string} destDir
+   */
+  async _promoteExtracted(stagingDir, destDir) {
+    const topEntries = await readdir(stagingDir, { withFileTypes: true });
+    const sourceDir =
+      topEntries.length === 1 && topEntries[0].isDirectory()
+        ? path.join(stagingDir, topEntries[0].name)
+        : stagingDir;
+
+    const entries = await readdir(sourceDir);
+    for (const name of entries) {
+      const src = path.join(sourceDir, name);
+      const dst = path.join(destDir, name);
+      await rm(dst, { recursive: true, force: true });
+      await rename(src, dst);
+    }
   }
 
   /**

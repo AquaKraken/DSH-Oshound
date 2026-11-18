@@ -75,28 +75,88 @@ export class RuntimeManager {
   constructor(paths, downloadQueue = new DownloadQueue()) {
     this.paths = paths;
     this.downloadQueue = downloadQueue;
+    this._resolvedWhisperExe = paths.whisperExe;
+    this._resolvedPiperExe = paths.piperExe;
+  }
+
+  /**
+   * Auto-detects a valid runtime directory without modifying files on disk:
+   * checks the primary `baseDir` first, then any immediate subdirectory
+   * (e.g. `runtime\piper\piper\`), then directories on `process.env.PATH`.
+   * @param {string} baseDir
+   * @param {Array<{relPath: string, label: string}>} required
+   * @returns {Promise<{dir: string | null, missing: string[]}>}
+   */
+  async _detectRuntimeDir(baseDir, required) {
+    const checkDir = async (dir) => {
+      const missing = [];
+      for (const item of required) {
+        if (!(await fileExists(path.join(dir, item.relPath)))) {
+          missing.push(item.label);
+        }
+      }
+      return missing;
+    };
+
+    const primaryMissing = await checkDir(baseDir);
+    if (primaryMissing.length === 0) {
+      return { dir: baseDir, missing: [] };
+    }
+
+    // Check immediate subdirectories (handles nested zip extractions like runtime/piper/piper/)
+    try {
+      const entries = await readdir(baseDir, { withFileTypes: true });
+      for (const entry of entries) {
+        if (!entry.isDirectory() || entry.name.startsWith('.')) continue;
+        const subDir = path.join(baseDir, entry.name);
+        if ((await checkDir(subDir)).length === 0) {
+          return { dir: subDir, missing: [] };
+        }
+      }
+    } catch {
+      /* baseDir may not exist yet */
+    }
+
+    // Check directories on PATH so pre-installed system runtimes work on any PC
+    const pathEnv = process.env.PATH ?? '';
+    for (const rawEntry of pathEnv.split(path.delimiter)) {
+      const candidate = rawEntry.trim().replace(/^"|"$/g, '');
+      if (!candidate) continue;
+      if ((await checkDir(candidate)).length === 0) {
+        return { dir: candidate, missing: [] };
+      }
+    }
+
+    return { dir: null, missing: primaryMissing };
   }
 
   /**
    * @returns {Promise<{state: import('../shared/types.js').InstallState, missing: string[]}>}
    */
   async checkWhisper() {
-    const missing = [];
-    if (!(await fileExists(this.paths.whisperExe))) missing.push('main.exe');
-    if (!(await fileExists(this.paths.whisperDll))) missing.push('Whisper.dll');
+    const baseDir = path.dirname(this.paths.whisperExe);
+    const { dir, missing } = await this._detectRuntimeDir(baseDir, [
+      { relPath: path.basename(this.paths.whisperExe), label: 'main.exe' },
+      { relPath: path.basename(this.paths.whisperDll), label: 'Whisper.dll' },
+    ]);
+    this._resolvedWhisperExe = dir ? path.join(dir, path.basename(this.paths.whisperExe)) : this.paths.whisperExe;
     const dlState = this.getDownloadState('whisper');
-    return { state: missing.length === 0 ? 'installed' : 'not-installed', missing, downloadState: dlState };
+    return { state: dir ? 'installed' : 'not-installed', missing, downloadState: dlState };
   }
 
   /**
    * @returns {Promise<{state: import('../shared/types.js').InstallState, missing: string[]}>}
    */
   async checkPiper() {
-    const missing = [];
-    if (!(await fileExists(this.paths.piperExe))) missing.push('piper.exe');
-    if (!(await fileExists(this.paths.piperPhontab))) missing.push('espeak-ng-data\\ (incomplete copy — use robocopy src dst /E to reinstall)');
+    const baseDir = path.dirname(this.paths.piperExe);
+    const phontabRel = path.relative(baseDir, this.paths.piperPhontab) || path.join('espeak-ng-data', 'phontab');
+    const { dir, missing } = await this._detectRuntimeDir(baseDir, [
+      { relPath: path.basename(this.paths.piperExe), label: 'piper.exe' },
+      { relPath: phontabRel, label: 'espeak-ng-data\\ (incomplete copy — use robocopy src dst /E to reinstall)' },
+    ]);
+    this._resolvedPiperExe = dir ? path.join(dir, path.basename(this.paths.piperExe)) : this.paths.piperExe;
     const dlState = this.getDownloadState('piper');
-    return { state: missing.length === 0 ? 'installed' : 'not-installed', missing, downloadState: dlState };
+    return { state: dir ? 'installed' : 'not-installed', missing, downloadState: dlState };
   }
 
   /**
@@ -120,11 +180,11 @@ export class RuntimeManager {
   }
 
   getWhisperExePath() {
-    return this.paths.whisperExe;
+    return this._resolvedWhisperExe;
   }
 
   getPiperExePath() {
-    return this.paths.piperExe;
+    return this._resolvedPiperExe;
   }
 
   /**

@@ -247,7 +247,7 @@ export async function apply(ctx, entryConfig = {}) {
     error: (m) => logger.error?.(`[${PLUGIN_NAME}] ${m}`),
   };
 
-  const dshHome = path.join(os.homedir(), '.dsh');
+  const dshHome = process.env.DSH_HOME || path.join(os.homedir(), '.dsh');
   const piperVoicesDir = path.join(dshHome, PATHS.piperVoices);
   const voiceTempDir = path.join(dshHome, PATHS.voiceTemp);
   await mkdir(voiceTempDir, { recursive: true });
